@@ -51,8 +51,9 @@ namespace Api_Övning
             string timeRegionAndCity = "timezone/" + regions + "/" + cityfortime;
 
             Task<Times> time1 = Times.GetTimeForACity(timeRegionAndCity);
-
             Thread.Sleep(1000);
+            var time2=(await time1).datetime.ToString().Split('T','.');
+            var time3 = time2[1];
 
 
             Console.WriteLine();
@@ -75,10 +76,10 @@ namespace Api_Övning
 
             Console.WriteLine((await weather1).temp + " °C grader varmt i staden " + city + " i landet " + country +
                 " som är baserat på din ip adess information.");
-            //Fungerar inte som den ska ännu och behöver thread sleep
+            //Fungerar inte som den ska ännu och behöver thread sleep får göra om utskriften sen
 
             Console.WriteLine();
-            Console.WriteLine(Convert.ToDateTime((await time1).datetime) + " är tiden och datumet i staden " + cityfortime + " som ligger i värdsdelen " + regions);
+            Console.WriteLine(time3 + " är tiden i staden " + cityfortime + " som ligger i värdsdelen " + regions);
 
         }
     }
