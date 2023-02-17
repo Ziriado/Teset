@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace Api_Övning
 {
@@ -28,7 +29,7 @@ namespace Api_Övning
         {
 
             var client = new HttpClient();
-            client.BaseAddress = new Uri("http://worldtimeapi.org/api/timezone/");
+            client.BaseAddress = new Uri("http://worldtimeapi.org/api/");
           
 
             Times time = null;
