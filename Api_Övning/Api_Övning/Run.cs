@@ -78,7 +78,7 @@ namespace Api_Övning
             //Fungerar inte som den ska ännu och behöver thread sleep
 
             Console.WriteLine();
-            Console.WriteLine((await time1).utc_datetime + " är tiden och datumet i staden " + cityfortime + " som ligger i värdsdelen " + regions);
+            Console.WriteLine(Convert.ToDateTime((await time1).datetime) + " är tiden och datumet i staden " + cityfortime + " som ligger i värdsdelen " + regions);
 
         }
     }
