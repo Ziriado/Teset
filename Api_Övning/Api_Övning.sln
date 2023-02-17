@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api_Övning", "Api_Övning\Api_Övning.csproj", "{10EE49AE-3667-4425-9870-E4FD04287C2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10EE49AE-3667-4425-9870-E4FD04287C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10EE49AE-3667-4425-9870-E4FD04287C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10EE49AE-3667-4425-9870-E4FD04287C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10EE49AE-3667-4425-9870-E4FD04287C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14910918-25ED-47B0-9E94-C88EA705DAE2}
+	EndGlobalSection
+EndGlobal

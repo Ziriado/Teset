@@ -1,0 +1,5 @@
+Euro,EUR
+Pound,GBP
+Krona,SEK
+Rubble,RUB
+Dollar,USD
