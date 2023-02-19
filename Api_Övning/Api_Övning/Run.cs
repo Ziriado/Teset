@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Linq.Expressions;
 
 namespace Api_Övning
 {
@@ -51,32 +52,38 @@ namespace Api_Övning
             string timeRegionAndCity = "timezone/" + regions + "/" + cityfortime;
 
             Task<Times> time1 = Times.GetTimeForACity(timeRegionAndCity);
-            Thread.Sleep(1000);
-            var time2=(await time1).datetime.ToString().Split('T','.');
+
+
+            Task.WaitAll(time1);
+            var time2 = (await time1).datetime.ToString().Split('T', '.');
             var time3 = time2[1];
 
 
             Console.WriteLine();
             Console.WriteLine("Skriver ut valutorna");
-            Console.WriteLine((await currency).exchange_rate);
+            Task.WaitAll(currency);
+            await currency;
+            Console.WriteLine($"En {currency1} ger dig " + Math.Round(currency.Result.exchange_rate, 2) + $" {currency2}");
+            Console.WriteLine();
+            Task.WaitAll(MyOwnIp);
+            await MyOwnIp;
+            Console.WriteLine("Din ip är " + MyOwnIp.Result.address);
             Console.WriteLine();
 
-            Console.WriteLine("Din ip är " + (await MyOwnIp).address);
-            Console.WriteLine();
-
+            Task.WaitAll(weather);
+            await weather;
             Console.WriteLine("Hård kodade tempen");
-            Console.WriteLine((await weather).temp + " °C varmt i staden " + "Nyköping");
-
-
+            Console.WriteLine(weather.Result.temp + " °C varmt i staden " + "Nyköping");
+            Task.WaitAll(weatherwithInputs);
+            await weatherwithInputs;
             Console.WriteLine();
             Console.WriteLine("Utvald stad");
-            Console.WriteLine((await weatherwithInputs).temp + " °C varmt i staden " + cityInput + " som ligger i landet " + countryInput);
+            Console.WriteLine(weatherwithInputs.Result.temp + " °C varmt i staden " + cityInput + " som ligger i landet " + countryInput);
             Console.WriteLine();
-
-
-            Console.WriteLine((await weather1).temp + " °C grader varmt i staden " + city + " i landet " + country +
+            Task.WaitAll(weather1);
+            await weather1;
+            Console.WriteLine(weather1.Result.temp + " °C grader varmt i staden " + city + " i landet " + country +
                 " som är baserat på din ip adess information.");
-            //Fungerar inte som den ska ännu och behöver thread sleep får göra om utskriften sen
 
             Console.WriteLine();
             Console.WriteLine(time3 + " är tiden i staden " + cityfortime + " som ligger i värdsdelen " + regions);
